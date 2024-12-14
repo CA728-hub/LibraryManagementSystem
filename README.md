@@ -1,81 +1,23 @@
-# LibraryManagementSystem
+# Library Management System
 
-import java.util.*;
+## Project Overview
+This project is a Java-based library management system designed to handle books and their copies efficiently. It demonstrates the use of object-oriented programming principles, such as encapsulation, inheritance, and polymorphism. The system was developed as part of a personalized ChatGPT prompt to enhance Java skills and showcase application development.
 
-public class Main {
+## Features
+- Add, update, and delete books in the library.
+- Manage multiple copies of each book.
+- View details of all books in the library.
+- Simple and user-friendly console interface.
 
-    public static void main(String[] args) {
+## Technology Used
+- **Programming Language**: Java
+- **Tools**: IntelliJ IDEA
+- **Key Concepts**: 
+  - Object-Oriented Programming (OOP)
+  - File Handling
+  - Exception Management
 
-        Library library = new Library();
-
-        library.addBook(new Book("Cody's Programming Journey", "Cody Anderson", 2023, 5));
-        library.addBook(new Book("Slice of Life", "John Doe", 2020, 3));
-
-        library.copyBook("Cody's Programming Journey");
-        library.displayBooks();
-    }
-}
-
-interface CopyInterface {
-    void copyFrom(Object other);
-}
-
-class Book implements CopyInterface {
-    String title;
-    String author;
-    int year;
-    int availableCopies;
-
-    Book(String title, String author, int year, int availableCopies) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
-        this.availableCopies = availableCopies;
-    }
-
-    @Override
-    public void copyFrom(Object other) {
-        if (other instanceof Book) {
-            Book otherBook = (Book) other;
-            this.title = otherBook.title;
-            this.author = otherBook.author;
-            this.year = otherBook.year;
-            this.availableCopies = otherBook.availableCopies;
-        }
-    }
-
-    void displayBookDetails() {
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Year: " + year);
-        System.out.println("Available copies: " + availableCopies);
-    }
-}
-
-class Library {
-    ArrayList<Book> books = new ArrayList<>();
-
-    void addBook(Book book) {
-        books.add(book);
-    }
-
-    void copyBook(String title) {
-        for (Book book : books) {
-            if (book.title.equals(title)) {
-                Book newBook = new Book(null, null, 0, 0);
-                newBook.copyFrom(book);
-                books.add(newBook);
-                System.out.println("Book copied successfully!");
-                return;
-            }
-        }
-        System.out.println("Book not found.");
-    }
-
-    void displayBooks() {
-        for (Book book : books) {
-            book.displayBookDetails();
-            System.out.println();
-        }
-    }
-}
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/CA728-hub/LibraryManagementSystem.git
